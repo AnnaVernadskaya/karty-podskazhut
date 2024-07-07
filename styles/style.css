@@ -61,7 +61,6 @@ a:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   cursor: pointer;
-  opacity: 0.5;
 }
 
 .content-section {
@@ -102,6 +101,7 @@ a:hover {
 .header__theme-toggler {
   display: flex;
   gap: 20px;
+  padding: 0;
   list-style: none;
 }
 
@@ -139,7 +139,7 @@ a:hover {
 
 .content__title {
   font-size: 30px;
-  padding-block-start: 7%;
+  padding-block-start: 8%;
   padding-block-end: 2.5%;
 }
 
@@ -271,17 +271,13 @@ a:hover {
 .content__list-item::before {
   content: "";
   position: absolute;
-  margin-inline-start: -25px;
+  left: -25px;
   height: 15px;
   width: 15px;
   background-image: url(../images/marker-light.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
-
-.content__list-item::before {
-  background-image: url(../images/marker-dark.svg);
 }
 
 .footer {
@@ -313,4 +309,8 @@ a:hover {
 
 .theme_dark .header__theme-button_is-active::after {
   background-image: url(../images/pattern.svg);
+}
+
+.theme_dark .content__list-item::before {
+  background-image: url(../images/marker-dark.svg);
 }
