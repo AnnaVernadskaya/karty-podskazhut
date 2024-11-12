@@ -1,15 +1,15 @@
+:root {
+  --bg-color: #f3efec;
+  --text-color: #312a4e;
+  --accent-color: #ffab6b;
+  --main-font: Raleway;
+  --accent-font: "STIX Two Text";
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-:root {
-  --bg-color: #f3efec; /*для цвета фона*/
-  --text-color: #312a4e; /*для цвета текста*/
-  --accent-color: #ffab6b; /*для акцентного цвета*/
-  --main-font: Raleway; /* имя семейства шрифта преобладающего текста*/
-  --accent-font: "STIX Two Text"; /*шрифт для заголовков и особенных текстовых элементов*/
 }
 
 .theme_dark {
@@ -21,9 +21,10 @@
 .page {
   min-inline-size: 360px;
   margin: 0;
-  background-color: var(--bg-color, white);
+  background-color: var(--bg-color, #f3efec);
   font-family: var(--main-font, Arial, sans-serif);
-  color: var(--text-color, black);
+  font-weight: 400;
+  color: var(--text-color, #312a4e);
 }
 
 p,
@@ -70,8 +71,7 @@ a:hover {
 .heading {
   text-align: center;
   font-family: var(--accent-font, Time, serif);
-  line-height: 90%;
-  font-style: normal;
+  line-height: 0.9;
   font-weight: 600;
   color: var(--main-font);
 }
@@ -88,14 +88,14 @@ a:hover {
   align-items: center;
   margin: 0 auto;
   padding-block: 20px;
-  width: 100%;
+  inline-size: 100%;
   border-block-start: 1px solid currentColor;
   border-block-end: 1px solid currentColor;
 }
 
 .header__logo {
-  width: 135px;
-  height: 31px;
+  inline-size: 135px;
+  block-size: 31px;
 }
 
 .header__theme-toggler {
@@ -110,9 +110,7 @@ a:hover {
   padding: 0;
   font-family: inherit;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 104%;
+  line-height: 1.04;
   background-color: transparent;
   border: none;
   color: inherit;
@@ -130,24 +128,23 @@ a:hover {
   content: "";
   position: absolute;
   z-index: -1;
-  top: 10px;
-  left: -4px;
-  width: 82px;
-  height: 0.5em;
+  inset-block-start: 10px;
+  inset-inline-start: -4px;
+  inline-size: 82px;
+  block-size: 0.5em;
   background-color: var(--accent-color);
 }
 
 .content__title {
   font-size: 30px;
-  padding-block-start: 8%;
+  padding-block-start: 7%;
   padding-block-end: 2.5%;
 }
 
 .content__text-block {
+  color: inherit;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  line-height: 1.2;
 }
 
 .content__text-block_type_first-lettered
@@ -156,30 +153,26 @@ a:hover {
   padding: 0 4px;
   display: inline-block;
   font-size: 30px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  line-height: 1.2;
   background-color: var(--accent-color);
 }
 
-.content__paragraph {
-  padding-block-end: 1.5em;
-}
 
-.content__text-block .content__paragraph:last-of-type {
-  padding-block-end: 0px;
+.content__text-block .content__paragraph:not(:last-of-type) {
+  padding-block-end: 1.5em;
 }
 
 .content__figure {
   position: relative;
   margin: 7% auto;
-  width: calc(100% + 10vi);
-  left: calc(-5vi);
+  inline-size: calc(100% + 10vi);
+  inset-inline-end: 5vi;
 }
 
 .content__picture {
-  width: 100%;
-  height: auto;
+  inline-size: 100%;
+  block-size: auto;
   display: block;
   object-fit: contain;
 }
@@ -188,21 +181,18 @@ a:hover {
   padding: 23px 0;
   text-align: center;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  line-height: 1.2;
   border-block-end: 1px solid currentColor;
 }
 
 .content__blockquote {
   margin: 0 auto;
   padding-block-end: 1.5em;
-  width: 75%;
+  inline-size: 75%;
   font-family: var(--main-font, Arial, sans-serif);
   font-size: 18px;
   font-style: italic;
-  font-weight: 400;
-  line-height: 200%;
+  line-height: 2;
 }
 
 .content__card {
@@ -220,9 +210,8 @@ a:hover {
 .content__card-title {
   font-family: var(--accent-font, Time, serif);
   font-size: 60px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 90%;
+  line-height: 0.9;
 }
 
 .colored-text {
@@ -234,19 +223,17 @@ a:hover {
   content: "";
   position: absolute;
   z-index: -1;
-  top: 32px;
-  left: -4px;
-  height: 0.3em;
-  width: 222px;
+  inset-block-start: 32px;
+  inset-inline-start: -4px;
+  block-size: 0.3em;
+  inline-size: 222px;
   background-color: var(--accent-color);
 }
 
 .content__card-subtitle {
   font-family: var(--main-font, Arial, sans-serif);
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  line-height: 1.2;
 }
 
 .content__list {
@@ -255,9 +242,7 @@ a:hover {
   padding: 0;
   list-style: none;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  line-height: 1.2;
 }
 
 .content__list-item {
@@ -271,13 +256,13 @@ a:hover {
 .content__list-item::before {
   content: "";
   position: absolute;
-  left: -25px;
-  height: 15px;
-  width: 15px;
+  inset-inline-start: -25px;
+  inline-size: 15px;
+  block-size: 15px;
   background-image: url(../images/marker-light.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 }
 
 .footer {
@@ -292,9 +277,7 @@ a:hover {
 .footer__copyrigh {
   font-family: var(--main-font, Arial, sans-serif);
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  line-height: 1.2;
 }
 
 .theme_dark .colored-text::after {
